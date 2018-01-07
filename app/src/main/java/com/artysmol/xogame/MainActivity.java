@@ -125,13 +125,11 @@ public class MainActivity extends AppCompatActivity {
                 mGameStatus.setText("");
                 mP1Logo.setImageResource(R.drawable.pig);
                 mP2Logo.setImageResource(R.drawable.rabbit_bw75);
-                mNewGame.setVisibility(View.INVISIBLE);
                 break;
             case Game.P2_TURN: //Ход второго игрока
                 mGameStatus.setText("");
                 mP1Logo.setImageResource(R.drawable.pig_bw75);
                 mP2Logo.setImageResource(R.drawable.rabbit);
-                mNewGame.setVisibility(View.INVISIBLE);
                 break;
             case Game.P1_WIN:
                 mGameStatus.setText(R.string.p1_wins);
@@ -193,6 +191,9 @@ public class MainActivity extends AppCompatActivity {
 
         redrawState(myGame.getGameState());
         redrawGrid(myGame.getGridState());
+
+        mNextGame.setVisibility(View.INVISIBLE);
+        mNewGame.setVisibility(View.INVISIBLE);
 
         if (myGame.getGameState()==Game.P1_TURN) {
             mGameStatus.setText("Начинает Свинья");
